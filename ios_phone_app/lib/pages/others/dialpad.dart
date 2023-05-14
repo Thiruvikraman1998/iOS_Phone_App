@@ -10,8 +10,6 @@ class DialpadView extends StatefulWidget {
 class _DialpadViewState extends State<DialpadView> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Dialpad Screen"),
-    );
+    return Container();
   }
 }
