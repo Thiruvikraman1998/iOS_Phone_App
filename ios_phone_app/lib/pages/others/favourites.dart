@@ -16,23 +16,27 @@ class _FavouritesViewState extends State<FavouritesView> {
       child: CustomScrollView(
         slivers: [
           CupertinoSliverNavigationBar(
-            padding: EdgeInsetsDirectional.all(5),
+            stretch: true,
+            backgroundColor: CupertinoColors.systemBackground,
+            padding: const EdgeInsetsDirectional.all(5),
             leading: CupertinoButton(
-                padding: EdgeInsets.zero,
-                child: const Icon(CupertinoIcons.add),
-                onPressed: () {
-                  debugPrint("Add pressed");
-                }),
+              padding: EdgeInsets.zero,
+              child: const Icon(CupertinoIcons.add),
+              onPressed: () {
+                debugPrint("Add pressed");
+              },
+            ),
             trailing: CupertinoButton(
-                padding: EdgeInsets.zero,
-                child: const Text(
-                  "Edit",
-                  style: TextStyle(fontSize: 22),
-                ),
-                onPressed: () {
-                  debugPrint("Edit pressed");
-                }),
-            largeTitle: Text("Favourites"),
+              padding: EdgeInsets.zero,
+              child: const Text(
+                "Edit",
+                style: TextStyle(fontSize: 20),
+              ),
+              onPressed: () {
+                debugPrint("Edit pressed");
+              },
+            ),
+            largeTitle: const Text("Favourites"),
           ),
         ],
       ),

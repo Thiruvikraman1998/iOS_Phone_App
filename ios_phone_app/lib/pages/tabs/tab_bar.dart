@@ -34,22 +34,26 @@ class _TabBarsState extends State<TabBars> {
       home: CupertinoPageScaffold(
         child: CupertinoTabScaffold(
           tabBar: CupertinoTabBar(
-              currentIndex: _selectedIndex,
-              onTap: onTapitem,
-              items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.star_fill), label: "Favourites"),
-                BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.time_solid), label: "Recents"),
-                BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.person_alt_circle_fill),
-                    label: "Contacts"),
-                BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.circle_grid_3x3_fill),
-                    label: "Keypad"),
-                BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.mic_fill), label: "Voicemail"),
-              ]),
+            height: 60,
+            border: const Border(top: BorderSide.none),
+            backgroundColor: Color(0xff00FFFFFF),
+            currentIndex: _selectedIndex,
+            onTap: onTapitem,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.star_fill), label: "Favourites"),
+              BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.time_solid), label: "Recents"),
+              BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.person_alt_circle_fill),
+                  label: "Contacts"),
+              BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.circle_grid_3x3_fill),
+                  label: "Keypad"),
+              BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.mic_fill), label: "Voicemail"),
+            ],
+          ),
           tabBuilder: (context, index) {
             return _pages[index];
           },

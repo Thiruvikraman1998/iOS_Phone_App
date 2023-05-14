@@ -14,16 +14,19 @@ class _VoicemailViewState extends State<VoicemailView> {
     return Center(
       child: GestureDetector(
         onTap: () {
-          print("Voicemail tapped");
+          debugPrint("Voicemail tapped");
         },
         child: Container(
           padding: const EdgeInsets.all(7),
           height: 40,
           width: 120,
           decoration: BoxDecoration(
-              //color: Colors.red,
-              border: Border.all(color: CupertinoColors.systemGrey3, width: 2),
-              borderRadius: const BorderRadius.all(Radius.circular(4))),
+            //color: Colors.red,
+            border: Border.all(color: CupertinoColors.systemGrey3, width: 2),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(4),
+            ),
+          ),
           child: const Text(
             "Call Voicemail",
             style: TextStyle(color: CupertinoColors.systemGrey2),
