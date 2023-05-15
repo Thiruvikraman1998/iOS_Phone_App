@@ -40,41 +40,37 @@ class _ContactsViewState extends State<ContactsView> {
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 18),
               child: CupertinoListSection(
-                header: const Text("Phone"),
                 children: [
-                  Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      height: 50,
-                      decoration: const BoxDecoration(
-                          color: CupertinoColors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            CupertinoIcons.person_3,
-                            size: 40,
+                  ClipRRect(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                    child: CupertinoListTile(
+                      leading: const Icon(
+                        CupertinoIcons.person_3,
+                        size: 40,
+                      ),
+                      leadingSize: 40,
+                      backgroundColor: CupertinoColors.white,
+                      trailing: Row(
+                        children: const [
+                          Text(
+                            "123",
+                            style:
+                                TextStyle(color: CupertinoColors.inactiveGray),
                           ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          const Text(
-                            "All Contacts",
-                            style: TextStyle(fontSize: 21),
-                          ),
-                          const Spacer(),
-                          Row(
-                            children: const [
-                              Text(
-                                "123",
-                                style: TextStyle(
-                                    color: CupertinoColors.inactiveGray),
-                              ),
-                              Icon(CupertinoIcons.forward,
-                                  color: CupertinoColors.inactiveGray)
-                            ],
+                          Icon(
+                            CupertinoIcons.forward,
+                            color: CupertinoColors.inactiveGray,
                           )
                         ],
-                      )),
+                      ),
+                      title: const Text(
+                        "iCloud Contacts",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -85,28 +81,18 @@ class _ContactsViewState extends State<ContactsView> {
   }
 }
 
-// CupertinoListTile(
-//                       leading: const Icon(
-//                         CupertinoIcons.person_3,
-//                         size: 40,
-//                       ),
-//                       leadingSize: 40,
-//                       backgroundColor: CupertinoColors.white,
-//                       trailing: Row(
-//                         children: const [
-//                           Text(
-//                             "123",
-//                             style:
-//                                 TextStyle(color: CupertinoColors.inactiveGray),
-//                           ),
-//                           Icon(
-//                             CupertinoIcons.forward,
-//                             color: CupertinoColors.inactiveGray,
-//                           )
-//                         ],
-//                       ),
-//                       title: const Text(
-//                         "iCloud Contacts",
-//                         style: TextStyle(fontSize: 20),
-//                       ),
-//                     ),
+// class CurvedClipper extends CustomClipper<Path> {
+//   @override
+//   Path getClip(Size size) {
+//     final path = Path()
+//       ..lineTo(0, size.height * 0.7)
+//       ..quadraticBezierTo(
+//           size.width * 0.5, size.height * 1.2, size.width, size.height * 0.7)
+//       ..lineTo(size.width, 0)
+//       ..close();
+//     return path;
+//   }
+
+//   @override
+//   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+// }
