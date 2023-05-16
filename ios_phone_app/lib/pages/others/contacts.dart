@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:ios_phone_app/pages/others/all_contacts.dart';
 //import 'package:flutter/material.dart';
 
 class ContactsView extends StatefulWidget {
@@ -9,6 +10,7 @@ class ContactsView extends StatefulWidget {
 }
 
 class _ContactsViewState extends State<ContactsView> {
+  final bool _isPressed = false;
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -37,46 +39,70 @@ class _ContactsViewState extends State<ContactsView> {
             largeTitle: const Text("Lists"),
           ),
           SliverToBoxAdapter(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 18),
-              child: CupertinoListSection(
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                    child: CupertinoListTile(
-                      leading: const Icon(
-                        CupertinoIcons.person_3,
-                        size: 40,
-                      ),
-                      leadingSize: 40,
-                      backgroundColor: CupertinoColors.white,
-                      trailing: Row(
-                        children: const [
-                          Text(
-                            "123",
-                            style:
-                                TextStyle(color: CupertinoColors.inactiveGray),
-                          ),
-                          Icon(
-                            CupertinoIcons.forward,
-                            color: CupertinoColors.inactiveGray,
-                          )
-                        ],
-                      ),
-                      title: const Text(
-                        "iCloud Contacts",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 18),
+                  child: cupertinoListSection("All Contacts", 125, ""),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 18),
+                  child: cupertinoListSection("iCloud Contacts", 55, "iCloud"),
+                ),
+              ],
             ),
           )
         ],
       ),
+    );
+  }
+
+  CupertinoListSection cupertinoListSection(String title, int count,
+      [String? header]) {
+    return CupertinoListSection(
+      header: Text(
+        header!,
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+      children: [
+        CupertinoListTile(
+          onTap: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(
+                builder: (context) => const AllContactsView(
+                  leadingTitle: 'Lists',
+                ),
+              ),
+            );
+          },
+          leading: const Icon(
+            CupertinoIcons.person_3,
+            size: 40,
+          ),
+          leadingSize: 40,
+          backgroundColor: CupertinoColors.white,
+          trailing: Row(
+            children: [
+              Text(
+                count.toString(),
+                style: const TextStyle(color: CupertinoColors.inactiveGray),
+              ),
+              const Icon(
+                CupertinoIcons.forward,
+                color: CupertinoColors.inactiveGray,
+              )
+            ],
+          ),
+          title: Text(
+            title,
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
+      ],
     );
   }
 }
