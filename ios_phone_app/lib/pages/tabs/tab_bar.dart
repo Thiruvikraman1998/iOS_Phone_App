@@ -55,7 +55,18 @@ class _TabBarsState extends State<TabBars> {
             ],
           ),
           tabBuilder: (context, index) {
-            return _pages[index];
+            return CupertinoTabView(
+              builder: (context) {
+                return SafeArea(
+                  top: false,
+                  bottom: false,
+                  child: CupertinoApp(
+                    home: CupertinoPageScaffold(child: _pages[index]),
+                  ),
+                );
+              },
+              // *(Important)* in the above we used CupertinoTabView to make the bottom bar to stay still even if there is any internal navigations were done.
+            );
           },
         ),
       ),

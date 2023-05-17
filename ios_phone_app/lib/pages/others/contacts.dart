@@ -99,7 +99,7 @@ class _ContactsViewState extends State<ContactsView> {
           ),
           title: Text(
             title,
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           ),
         ),
       ],

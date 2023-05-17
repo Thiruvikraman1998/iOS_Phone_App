@@ -15,13 +15,33 @@ class _AllContactsViewState extends State<AllContactsView> {
       child: CustomScrollView(
         slivers: <Widget>[
           CupertinoSliverNavigationBar(
-            //automaticallyImplyLeading: true,
             largeTitle: const Text("Contacts"),
             stretch: true,
             previousPageTitle: widget.leadingTitle,
+          ),
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: CupertinoSearchTextField(),
+            ),
           )
         ],
       ),
     );
   }
 }
+
+// <Widget>[
+//           CupertinoSliverNavigationBar(
+//             //automaticallyImplyLeading: true,
+//             largeTitle: const Text("Contacts"),
+//             stretch: true,
+//             previousPageTitle: widget.leadingTitle,
+//           ),
+//           const SliverToBoxAdapter(
+//             child: Padding(
+//               padding: EdgeInsets.symmetric(horizontal: 15),
+//               child: CupertinoSearchTextField(),
+//             ),
+//           )
+//         ],
